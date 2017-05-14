@@ -1,0 +1,23 @@
+{
+  "pair": {
+		"authorization": {
+			"configure": "Configureer SQL server",
+			"start_configuration":"Save!",
+			"configuration_explanation": "Vul de server details van uw MYSQL server hier beneden in. De Query moet 1 rij met 2 kolommen te weten 'power' en 'meter' opleveren"
+		},
+    "configuration": {
+       "name": "Naam",
+       "host": "hostadres",
+	   "user": "gebruiker",
+	   "pass": "wachtwoord",
+	   "powermult": "Energie multiplier",
+	   "query": "MYSQL Query",
+	   "database": "Database"
+    },
+    "feedback":{
+			"could_not_connect": "Kon niet verbinden met uw SQL server, controleer de foutmelding",
+			"succesfully_connected": "Succesvol verbonden"
+		}
+  },
+  "usage": "Het huidige gebruik van __name__ is __usage__ watt"
+}
