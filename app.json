@@ -108,7 +108,7 @@
                                 },{
                                     "id": "powermult",
                                     "type": "text",
-                                    "value": "1",
+                                    "value": "",
                                     "label": {
                                         "en": "power Multiplier",
                                         "nl": "energie correctie factor"
