@@ -1,23 +1,24 @@
-** MYSQL Sensor App for Athom homey
+MYSQL Sensor App for Athom homey
 
 
-** CHANGELOG
+CHANGELOG
 
-*1.0.0 First release 
+1.0.0 First release 
 	- Icon changed
 
-* 0.02
+0.0.2
 	- Small bugfixes. 
 	- powermult set during pairing became corrupt.
 	- Default powermult removed
 	- Version number changed
 	
 
-** USAGE
+USAGE
+
 With this app you can load energy and power meter data from a mysql database into homey. The database can be on a NAS or on a seperate server. 
 There are verious applications that can fill a MySQL database with Solar logs or P1 (smartmeter) data.
 
-* SETUP
+SETUP
 - Install the app on your homey. 
 - Add a MySQL power device. 
 - Fill the folowing fields
@@ -29,16 +30,16 @@ There are verious applications that can fill a MySQL database with Solar logs or
 	- Energy Multiplier - Correction factor for energy value. P1 (smartmeter) logs for example output 10 watt as 0.010 so the correction factor is 1000
 	- Polling rate		- Number of seconds between MySQL server poll 10 - 10 seconds. 
 
-*FEATURES
+FEATURES
 
-*Device
+Device
 - MySQL DEVICE
 
-*Insights (per device)
+Insights (per device)
 - Energy
 - Meter value
 
-* Flows 
+Flows 
 - (IF) Energy is changed
 - (IF) Energy meter is changed
 - (variable) Energy
