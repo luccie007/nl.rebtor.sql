@@ -1,9 +1,12 @@
-"use strict";
+'use strict';
 
-function init() {
+const Homey = require('homey');
+
+class SQL_Device extends Homey.App {
 	
-	Homey.log("MYSQL Plugin Loaded!");
-
+	onInit() {
+		this.log('MyApp is running...');
+	}
 }
-
-module.exports.init = init;
+	
+module.exports = SQL_Device;

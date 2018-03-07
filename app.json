@@ -1,49 +1,28 @@
 {
-    "id": "nl.rebtor.sql",
-    "name": {
-        "en": "SQL"
-    },
-    "version": "1.0.0",
-    "compatibility": "1.x",
-    "author": {
-        "name": "Rens Brandwijk",
-        "email": "rebtor@rebtor.nl"
-    },
-  "contributors": {
-    "developers": [
-      {
-              "name": "Rens Brandwijk",
-              "email": "rebtor@rebtor.nl"
-          }
-    ]
-  },
-  "images": {
-    "large": "./assets/images/large.jpg",
-    "small": "./assets/images/small.jpg"
-  },
-  "category": "appliances",
-  "description": {
+	"id": "nl.rebtor.sql",
+	"version": "2.0.0",
+	"compatibility": ">=1.5.0",
+	"sdk": 2,
+	"name": {
+		"en": "SQL"
+			},
+	"description": {
     "en": "Enables Homey request data from a MYSQL server",
-    "nl": "Gebruik Homey om data op te vragen van een MYSQL server "
+	"nl": "Gebruik Homey om data op te vragen van een MYSQL server "
   },
-  "dependencies": {
-    "request": "*"
+	"category": [
+    "appliances"
+  ],
+	"permissions": [],
+	"images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
   },
-  "speech": [
-      {
-          "id": "energieverbruik",
-          "importance": 1,
-          "triggers": {
-              "en": ["energy usage"],
-              "nl": ["energieverbruik", "energie verbruik"]
-          }
-      }
-  ],
-  "permissions": [
-      "homey:manager:speech-output",
-      "homey:manager:speech-input"
-  ],
-  "drivers": [
+	"author": {
+    "name": "Rens Brandwijk",
+    "email": "rebtor@rebtor.nl"
+  },
+    "drivers": [
     {
       "id": "mysql_power",
       "mobile": {
@@ -154,6 +133,209 @@
           "id": "pair"
         }
       ]
+    },
+	{
+      "id": "mysql_gas",
+      "mobile": {
+            "components": [
+                {
+                    "id": "icon",
+                    "capabilities": [  ]
+                },
+                {
+                  "id": "sensor",
+                  "capabilities": [ "meter_gas" ]
+                }
+              ]
+            },
+      "settings": [
+                        {
+                            "type": "group",
+                            "label": {
+                                "en": "General settings",
+                                "nl": "Algemene instellingen"
+                            },
+                            "children": [
+                                {
+                                    "id": "host",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "Host",
+                                        "nl": "Host"
+                                    }
+                                },
+                                {
+                                    "id": "user",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "user",
+                                        "nl": "gebruiker"
+                                    }
+                                },
+                                {
+                                    "id": "pass",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "password",
+                                        "nl": "wachtwoord"
+                                    }
+                                },
+                                {
+                                    "id": "database",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "database",
+                                        "nl": "database"
+                                    }
+                                },
+                                {
+                                    "id": "query",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "query",
+                                        "nl": "query"
+                                    }
+                                },								
+                                {
+                            "id": "pollingrate",
+                            "type": "number",
+                            "value": 10,
+                            "label": {
+                                "en": "Polling rate in seconds (min. 5)",
+                                "nl": "Polling rate in seconden (min. 5)"
+                            },
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            }
+                        }
+                              ]
+                            }
+                          ],
+      "name": {
+        "en": "MYSQL gas Device",
+        "nl": "MYSQL gas Device"
+      },
+      "images": {
+        "large": "drivers/mysql_power/assets/images/large.jpg",
+        "small": "drivers/mysql_power/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [ "meter_gas" ],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    },
+	{
+      "id": "mysql_weather",
+      "mobile": {
+            "components": [
+                {
+                    "id": "icon",
+                    "capabilities": [  ]
+                },
+                {
+                    "id": "sensor",
+					"capabilities": [ "measure_temperature" ]
+                },
+                {
+                  "id": "sensor",
+                  "capabilities": [ "measure_humidity" ]
+                }
+              ]
+            },
+      "settings": [
+                        {
+                            "type": "group",
+                            "label": {
+                                "en": "General settings",
+                                "nl": "Algemene instellingen"
+                            },
+                            "children": [
+                                {
+                                    "id": "host",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "Host",
+                                        "nl": "Host"
+                                    }
+                                },
+                                {
+                                    "id": "user",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "user",
+                                        "nl": "gebruiker"
+                                    }
+                                },
+                                {
+                                    "id": "pass",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "password",
+                                        "nl": "wachtwoord"
+                                    }
+                                },
+                                {
+                                    "id": "database",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "database",
+                                        "nl": "database"
+                                    }
+                                },
+                                {
+                                    "id": "query",
+                                    "type": "text",
+                                    "value": "",
+                                    "label": {
+                                        "en": "query",
+                                        "nl": "query"
+                                    }
+                                },								
+                                {
+                            "id": "pollingrate",
+                            "type": "number",
+                            "value": 10,
+                            "label": {
+                                "en": "Polling rate in seconds (min. 5)",
+                                "nl": "Polling rate in seconden (min. 5)"
+                            },
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            }
+                        }
+                              ]
+                            }
+                          ],
+      "name": {
+        "en": "MYSQL weather Device",
+        "nl": "MYSQL weather Device"
+      },
+      "images": {
+        "large": "drivers/mysql_weather/assets/images/large.jpg",
+        "small": "drivers/mysql_weather/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [ "measure_temperature", "measure_humidity" ],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
     }
   ]
+  
 }
