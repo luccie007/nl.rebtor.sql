@@ -2,9 +2,6 @@
 
 ** CHANGELOG
 
-* 2.0.2
-	- fixed name for sensor device
-
 * 2.0.1	
 	- Added support for sensor device
 
