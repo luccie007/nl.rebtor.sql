@@ -420,8 +420,8 @@
                             }
                           ],
       "name": {
-        "en": "MYSQL weather Device",
-        "nl": "MYSQL weather Device"
+        "en": "MYSQL sensor Device",
+        "nl": "MYSQL sensor Device"
       },
       "images": {
         "large": "drivers/mysql_weather/assets/images/large.jpg",
