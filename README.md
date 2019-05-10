@@ -2,6 +2,9 @@
 
 ** CHANGELOG
 
+* 2.0.3
+	- Language files edited
+
 * 2.0.2
 	- fixed name for sensor device
 

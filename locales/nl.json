@@ -3,7 +3,7 @@
 		"authorization": {
 			"configure": "Configureer SQL server",
 			"start_configuration":"Save!",
-			"configuration_explanation": "Vul de server details van uw MYSQL server hier beneden in. De Query moet 1 rij met 2 kolommen te weten 'power' en 'meter' opleveren"
+			"configuration_explanation": "Vul de server details van uw MYSQL server hier beneden in. Query die wordt gebruikt voor ophalen voor data. Gebruik de volgende veldnamen: Power device : power (huidig gebruik in watt) en meter (Totaalverbruik in kwh) gas device : meter (Totaal in m3) weather device : temp (huidige temperatuur in C) and humidity (huidige luchtvochtigheid in %) sensor device : triggered (integer waarde groter dan 0 is alarm triggered)"
 		},
     "configuration": {
        "name": "Naam",

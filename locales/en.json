@@ -3,7 +3,7 @@
 		"authorization": {
 			"configure": "Configure your SQL server",
 			"start_configuration":"Save!",
-			"configuration_explanation": "Enter serverdetails below. Make sure the Query returns one row with 2 collums Power and Meter"
+			"configuration_explanation": "Enter serverdetails below. Query used to retrieve data. Use the following fieldnames: Power device : power (current usage in watt) and meter (total use in KwH) gas device : meter (total use in m3) weather device : temp (current temperature in C) and humidity (Current humidity in %) sensor device : triggered (integer value greater then 0 is alarm triggered)"
 		},
     "configuration": {
        "name": "Name",
