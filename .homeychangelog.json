@@ -1,0 +1,20 @@
+{
+  "0.0.2": {
+    "en": "Small bugfixes, powermult set during pairing became corrupt, Default powermult removed, Version number changed\t"
+  },
+  "1.0.0": {
+    "en": "Icon changed\t"
+  },
+  "2.0.0": {
+    "en": "Update to SDK 2, Added support for gas and weather device\t"
+  },
+  "2.0.1": {
+    "en": "Added support for sensor device\t"
+  },
+  "2.0.2": {
+    "en": "fixed name for sensor device\t"
+  },
+  "3.0.0": {
+    "en": "SDK update and support for version 5.0.0"
+  }
+}
