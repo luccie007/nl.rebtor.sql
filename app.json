@@ -1,8 +1,8 @@
 {
     "id": "nl.rebtor.sql",
-    "version": "2.0.3",
-    "compatibility": ">=1.5.0",
-    "sdk": 2,
+    "version": "3.0.0",
+    "compatibility": ">=5.0.0",
+    "sdk": 3,
     "name": {
         "en": "SQL"
     },
