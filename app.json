@@ -1,534 +1,621 @@
 {
-    "id": "nl.rebtor.sql",
-    "version": "3.0.0",
-    "compatibility": ">=5.0.0",
-    "sdk": 3,
-    "name": {
-        "en": "SQL"
-    },
-    "description": {
-        "en": "Enables Homey request data from a MYSQL server",
-        "nl": "Gebruik Homey om data op te vragen van een MYSQL server "
-    },
-    "category": [
-        "appliances"
-    ],
-    "permissions": [],
-    "images": {
-        "large": "/assets/images/large.png",
-        "small": "/assets/images/small.png"
-    },
-    "author": {
-        "name": "Rens Brandwijk",
-        "email": "rebtor@rebtor.nl"
-    },
-    "drivers": [{
-            "id": "mysql_power",
-            "mobile": {
-                "components": [{
-                        "id": "icon",
-                        "capabilities": []
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["measure_power"]
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["meter_power"]
-                    }
-                ]
-            },
-            "settings": [{
-                    "type": "group",
-                    "label": {
-                        "en": "General settings",
-                        "nl": "Algemene instellingen"
-                    },
-                    "children": [{
-                            "id": "host",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "Host",
-                                "nl": "Host"
-                            }
-                        }, {
-                            "id": "user",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "user",
-                                "nl": "gebruiker"
-                            }
-                        }, {
-                            "id": "pass",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "password",
-                                "nl": "wachtwoord"
-                            }
-                        }, {
-                            "id": "database",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "database",
-                                "nl": "database"
-                            }
-                        }, {
-                            "id": "powermult",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "power Multiplier",
-                                "nl": "energie correctie factor"
-                            }
-                        }, {
-                            "id": "query",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "query",
-                                "nl": "query"
-                            }
-                        }, {
-                            "id": "pollingrate",
-                            "type": "number",
-                            "value": 10,
-                            "label": {
-                                "en": "Polling rate in seconds (min. 5)",
-                                "nl": "Polling rate in seconden (min. 5)"
-                            },
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            }
-                        }
-                    ]
-                }
-            ],
-            "name": {
-                "en": "MYSQL Power Device",
-                "nl": "MYSQL Power Device"
-            },
-            "images": {
-                "large": "drivers/mysql_power/assets/images/large.jpg",
-                "small": "drivers/mysql_power/assets/images/small.jpg"
-            },
-            "class": "sensor",
-            "capabilities": ["measure_power", "meter_power"],
-            "pair": [{
-                    "id": "pair"
-                }
+  "id": "nl.rebtor.sql",
+  "version": "3.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "SQL"
+  },
+  "description": {
+    "en": "Enables Homey request data from a MYSQL server",
+    "nl": "Gebruik Homey om data op te vragen van een MYSQL server "
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Rens Brandwijk",
+    "email": "rebtor@rebtor.nl"
+  },
+  "drivers": [
+    {
+      "id": "mysql_power",
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_power"
             ]
-        }, {
-            "id": "mysql_power_cumulative",
-            "mobile": {
-                "components": [{
-                        "id": "icon",
-                        "capabilities": []
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["measure_power"]
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["meter_power"]
-                    }
-                ]
-            },
-            "settings": [{
-                    "type": "group",
-                    "label": {
-                        "en": "General settings",
-                        "nl": "Algemene instellingen"
-                    },
-                    "children": [{
-                            "id": "host",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "Host",
-                                "nl": "Host"
-                            }
-                        }, {
-                            "id": "user",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "user",
-                                "nl": "gebruiker"
-                            }
-                        }, {
-                            "id": "pass",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "password",
-                                "nl": "wachtwoord"
-                            }
-                        }, {
-                            "id": "database",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "database",
-                                "nl": "database"
-                            }
-                        }, {
-                            "id": "powermult",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "power Multiplier",
-                                "nl": "energie correctie factor"
-                            }
-                        }, {
-                            "id": "query",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "query",
-                                "nl": "query"
-                            }
-                        }, {
-                            "id": "pollingrate",
-                            "type": "number",
-                            "value": 10,
-                            "label": {
-                                "en": "Polling rate in seconds (min. 5)",
-                                "nl": "Polling rate in seconden (min. 5)"
-                            },
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            }
-                        }
-                    ]
-                }
-            ],
-            "name": {
-                "en": "MYSQL Power Device (cumulative)",
-                "nl": "MYSQL Power Device (cumulative)"
-            },
-            "images": {
-                "large": "drivers/mysql_power_cumulative/assets/images/large.jpg",
-                "small": "drivers/mysql_power_cumulative/assets/images/small.jpg"
-            },
-            "class": "sensor",
-            "capabilities": ["measure_power",
-                "meter_power",
-                "meter_power.in",
-                "meter_power.out",
-                "meter_power.in_today",
-                "meter_power.out_today",
-                "meter_power.today"],
-            "capabilitiesOptions": {
-                "meter_power.in": {
-                    "title": {
-                        "en": "Power in"
-                    },
-                    "greyout": false
-                },
-                "meter_power.out": {
-                    "title": {
-                        "en": "Power out"
-                    },
-                    "greyout": false
-                },
-                "meter_power.in_today": {
-                    "title": {
-                        "en": "Power in today"
-                    },
-                    "greyout": false
-                },
-                "meter_power.out_today": {
-                    "title": {
-                        "en": "Power out today"
-                    },
-                    "greyout": false
-                },
-                "meter_power.today": {
-                    "title": {
-                        "en": "Power today"
-                    },
-                    "greyout": false
-                }
-            },
-            "energy": {
-                "cumulative": true
-            },
-            "pair": [{
-                    "id": "pair"
-                }
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "meter_power"
             ]
-        }, {
-            "id": "mysql_gas",
-            "mobile": {
-                "components": [{
-                        "id": "icon",
-                        "capabilities": []
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["meter_gas"]
-                    }
-                ]
+          }
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Host",
+                "nl": "Host"
+              }
             },
-            "settings": [{
-                    "type": "group",
-                    "label": {
-                        "en": "General settings",
-                        "nl": "Algemene instellingen"
-                    },
-                    "children": [{
-                            "id": "host",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "Host",
-                                "nl": "Host"
-                            }
-                        }, {
-                            "id": "user",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "user",
-                                "nl": "gebruiker"
-                            }
-                        }, {
-                            "id": "pass",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "password",
-                                "nl": "wachtwoord"
-                            }
-                        }, {
-                            "id": "database",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "database",
-                                "nl": "database"
-                            }
-                        }, {
-                            "id": "query",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "query",
-                                "nl": "query"
-                            }
-                        }, {
-                            "id": "pollingrate",
-                            "type": "number",
-                            "value": 10,
-                            "label": {
-                                "en": "Polling rate in seconds (min. 5)",
-                                "nl": "Polling rate in seconden (min. 5)"
-                            },
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            }
-                        }
-                    ]
-                }
-            ],
-            "name": {
-                "en": "MYSQL gas Device",
-                "nl": "MYSQL gas Device"
+            {
+              "id": "user",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "user",
+                "nl": "gebruiker"
+              }
             },
-            "images": {
-                "large": "drivers/mysql_power/assets/images/large.jpg",
-                "small": "drivers/mysql_power/assets/images/small.jpg"
+            {
+              "id": "pass",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "password",
+                "nl": "wachtwoord"
+              }
             },
-            "class": "sensor",
-            "capabilities": ["meter_gas"],
-            "pair": [{
-                    "id": "pair"
-                }
-            ]
-        }, {
-            "id": "mysql_weather",
-            "mobile": {
-                "components": [{
-                        "id": "icon",
-                        "capabilities": []
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["measure_temperature"]
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["measure_humidity"]
-                    }
-                ]
+            {
+              "id": "database",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "database",
+                "nl": "database"
+              }
             },
-            "settings": [{
-                    "type": "group",
-                    "label": {
-                        "en": "General settings",
-                        "nl": "Algemene instellingen"
-                    },
-                    "children": [{
-                            "id": "host",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "Host",
-                                "nl": "Host"
-                            }
-                        }, {
-                            "id": "user",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "user",
-                                "nl": "gebruiker"
-                            }
-                        }, {
-                            "id": "pass",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "password",
-                                "nl": "wachtwoord"
-                            }
-                        }, {
-                            "id": "database",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "database",
-                                "nl": "database"
-                            }
-                        }, {
-                            "id": "query",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "query",
-                                "nl": "query"
-                            }
-                        }, {
-                            "id": "pollingrate",
-                            "type": "number",
-                            "value": 10,
-                            "label": {
-                                "en": "Polling rate in seconds (min. 5)",
-                                "nl": "Polling rate in seconden (min. 5)"
-                            },
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            }
-                        }
-                    ]
-                }
-            ],
-            "name": {
-                "en": "MYSQL weather Device",
-                "nl": "MYSQL weather Device"
+            {
+              "id": "powermult",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "power Multiplier",
+                "nl": "energie correctie factor"
+              }
             },
-            "images": {
-                "large": "drivers/mysql_weather/assets/images/large.jpg",
-                "small": "drivers/mysql_weather/assets/images/small.jpg"
+            {
+              "id": "query",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "query",
+                "nl": "query"
+              }
             },
-            "class": "sensor",
-            "capabilities": ["measure_temperature", "measure_humidity"],
-            "pair": [{
-                    "id": "pair"
-                }
-            ]
-        }, {
-            "id": "mysql_sensor",
-            "mobile": {
-                "components": [{
-                        "id": "icon",
-                        "capabilities": []
-                    }, {
-                        "id": "sensor",
-                        "capabilities": ["alarm_contact"]
-                    }
-                ]
-            },
-            "settings": [{
-                    "type": "group",
-                    "label": {
-                        "en": "General settings",
-                        "nl": "Algemene instellingen"
-                    },
-                    "children": [{
-                            "id": "host",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "Host",
-                                "nl": "Host"
-                            }
-                        }, {
-                            "id": "user",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "user",
-                                "nl": "gebruiker"
-                            }
-                        }, {
-                            "id": "pass",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "password",
-                                "nl": "wachtwoord"
-                            }
-                        }, {
-                            "id": "database",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "database",
-                                "nl": "database"
-                            }
-                        }, {
-                            "id": "query",
-                            "type": "text",
-                            "value": "",
-                            "label": {
-                                "en": "query",
-                                "nl": "query"
-                            }
-                        }, {
-                            "id": "pollingrate",
-                            "type": "number",
-                            "value": 10,
-                            "label": {
-                                "en": "Polling rate in seconds (min. 5)",
-                                "nl": "Polling rate in seconden (min. 5)"
-                            },
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            }
-                        }
-                    ]
-                }
-            ],
-            "name": {
-                "en": "MYSQL sensor Device",
-                "nl": "MYSQL sensor Device"
-            },
-            "images": {
-                "large": "drivers/mysql_weather/assets/images/large.jpg",
-                "small": "drivers/mysql_weather/assets/images/small.jpg"
-            },
-            "class": "sensor",
-            "capabilities": ["alarm_contact"],
-            "pair": [{
-                    "id": "pair"
-                }
-            ]
+            {
+              "id": "pollingrate",
+              "type": "number",
+              "value": 10,
+              "label": {
+                "en": "Polling rate in seconds (min. 5)",
+                "nl": "Polling rate in seconden (min. 5)"
+              },
+              "attr": {
+                "min": 5,
+                "max": 3600
+              }
+            }
+          ]
         }
-    ]
-
+      ],
+      "name": {
+        "en": "MYSQL Power Device",
+        "nl": "MYSQL Power Device"
+      },
+      "images": {
+        "large": "drivers/mysql_power/assets/images/large.jpg",
+        "small": "drivers/mysql_power/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_power",
+        "meter_power"
+      ],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    },
+    {
+      "id": "mysql_power_cumulative",
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_power"
+            ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "meter_power"
+            ]
+          }
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Host",
+                "nl": "Host"
+              }
+            },
+            {
+              "id": "user",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "user",
+                "nl": "gebruiker"
+              }
+            },
+            {
+              "id": "pass",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "password",
+                "nl": "wachtwoord"
+              }
+            },
+            {
+              "id": "database",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "database",
+                "nl": "database"
+              }
+            },
+            {
+              "id": "powermult",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "power Multiplier",
+                "nl": "energie correctie factor"
+              }
+            },
+            {
+              "id": "query",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "query",
+                "nl": "query"
+              }
+            },
+            {
+              "id": "pollingrate",
+              "type": "number",
+              "value": 10,
+              "label": {
+                "en": "Polling rate in seconds (min. 5)",
+                "nl": "Polling rate in seconden (min. 5)"
+              },
+              "attr": {
+                "min": 5,
+                "max": 3600
+              }
+            }
+          ]
+        }
+      ],
+      "name": {
+        "en": "MYSQL Power Device (cumulative)",
+        "nl": "MYSQL Power Device (cumulative)"
+      },
+      "images": {
+        "large": "drivers/mysql_power_cumulative/assets/images/large.jpg",
+        "small": "drivers/mysql_power_cumulative/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "meter_power.in",
+        "meter_power.out",
+        "meter_power.in_today",
+        "meter_power.out_today",
+        "meter_power.today"
+      ],
+      "capabilitiesOptions": {
+        "meter_power.in": {
+          "title": {
+            "en": "Power in"
+          },
+          "greyout": false
+        },
+        "meter_power.out": {
+          "title": {
+            "en": "Power out"
+          },
+          "greyout": false
+        },
+        "meter_power.in_today": {
+          "title": {
+            "en": "Power in today"
+          },
+          "greyout": false
+        },
+        "meter_power.out_today": {
+          "title": {
+            "en": "Power out today"
+          },
+          "greyout": false
+        },
+        "meter_power.today": {
+          "title": {
+            "en": "Power today"
+          },
+          "greyout": false
+        }
+      },
+      "energy": {
+        "cumulative": true
+      },
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    },
+    {
+      "id": "mysql_gas",
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "meter_gas"
+            ]
+          }
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Host",
+                "nl": "Host"
+              }
+            },
+            {
+              "id": "user",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "user",
+                "nl": "gebruiker"
+              }
+            },
+            {
+              "id": "pass",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "password",
+                "nl": "wachtwoord"
+              }
+            },
+            {
+              "id": "database",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "database",
+                "nl": "database"
+              }
+            },
+            {
+              "id": "query",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "query",
+                "nl": "query"
+              }
+            },
+            {
+              "id": "pollingrate",
+              "type": "number",
+              "value": 10,
+              "label": {
+                "en": "Polling rate in seconds (min. 5)",
+                "nl": "Polling rate in seconden (min. 5)"
+              },
+              "attr": {
+                "min": 5,
+                "max": 3600
+              }
+            }
+          ]
+        }
+      ],
+      "name": {
+        "en": "MYSQL gas Device",
+        "nl": "MYSQL gas Device"
+      },
+      "images": {
+        "large": "drivers/mysql_power/assets/images/large.jpg",
+        "small": "drivers/mysql_power/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "meter_gas"
+      ],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    },
+    {
+      "id": "mysql_weather",
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_temperature"
+            ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_humidity"
+            ]
+          }
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Host",
+                "nl": "Host"
+              }
+            },
+            {
+              "id": "user",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "user",
+                "nl": "gebruiker"
+              }
+            },
+            {
+              "id": "pass",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "password",
+                "nl": "wachtwoord"
+              }
+            },
+            {
+              "id": "database",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "database",
+                "nl": "database"
+              }
+            },
+            {
+              "id": "query",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "query",
+                "nl": "query"
+              }
+            },
+            {
+              "id": "pollingrate",
+              "type": "number",
+              "value": 10,
+              "label": {
+                "en": "Polling rate in seconds (min. 5)",
+                "nl": "Polling rate in seconden (min. 5)"
+              },
+              "attr": {
+                "min": 5,
+                "max": 3600
+              }
+            }
+          ]
+        }
+      ],
+      "name": {
+        "en": "MYSQL weather Device",
+        "nl": "MYSQL weather Device"
+      },
+      "images": {
+        "large": "drivers/mysql_weather/assets/images/large.jpg",
+        "small": "drivers/mysql_weather/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity"
+      ],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    },
+    {
+      "id": "mysql_sensor",
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "alarm_contact"
+            ]
+          }
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Host",
+                "nl": "Host"
+              }
+            },
+            {
+              "id": "user",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "user",
+                "nl": "gebruiker"
+              }
+            },
+            {
+              "id": "pass",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "password",
+                "nl": "wachtwoord"
+              }
+            },
+            {
+              "id": "database",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "database",
+                "nl": "database"
+              }
+            },
+            {
+              "id": "query",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "query",
+                "nl": "query"
+              }
+            },
+            {
+              "id": "pollingrate",
+              "type": "number",
+              "value": 10,
+              "label": {
+                "en": "Polling rate in seconds (min. 5)",
+                "nl": "Polling rate in seconden (min. 5)"
+              },
+              "attr": {
+                "min": 5,
+                "max": 3600
+              }
+            }
+          ]
+        }
+      ],
+      "name": {
+        "en": "MYSQL sensor Device",
+        "nl": "MYSQL sensor Device"
+      },
+      "images": {
+        "large": "drivers/mysql_weather/assets/images/large.jpg",
+        "small": "drivers/mysql_weather/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact"
+      ],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    }
+  ]
 }

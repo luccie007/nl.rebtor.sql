@@ -16,5 +16,8 @@
   },
   "3.0.0": {
     "en": "SDK update and support for version 5.0.0"
+  },
+  "3.0.1": {
+    "en": "Updated MySQL libery"
   }
 }
