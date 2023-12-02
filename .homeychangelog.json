@@ -19,5 +19,8 @@
   },
   "3.0.1": {
     "en": "Updated MySQL libery"
+  },
+  "3.1.0": {
+    "en": "Added Current and Voltages to Powermeter and Port for SQL when pairing"
   }
 }

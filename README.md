@@ -32,7 +32,8 @@ With this app you can create virtual devices that gather data from a mysql datab
 - Add a MySQL device. 
 - Fill the folowing fields
 	- Name						: Name of device
-	- Host						: Name of MYSQL server
+	- Host						: Name/IP of MYSQL server
+	- Port						: Port of MYSQL server	(default = 3306)
 	- User						: User name used to contact MYSQL server
 	- Password					: Password 
 	- Query						: Query used to retrieve data. Use the following fieldnames: 

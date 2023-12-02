@@ -8,6 +8,7 @@
     "configuration": {
        "name": "Name",
        "host": "Hostname",
+	   "port": "Port",
 	   "user": "Username",
 	   "pass": "Password",
 	   "query": "MYSQL Query",

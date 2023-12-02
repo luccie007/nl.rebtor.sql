@@ -46,3 +46,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 assets/icon old.svg
+
+
+# Added by Homey CLI
+/.homeybuild/

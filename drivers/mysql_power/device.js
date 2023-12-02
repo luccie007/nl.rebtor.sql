@@ -13,9 +13,9 @@ class mysql_power extends Homey.Device {
         this.log('device init');
         this.log('name:', this.getName());
         this.log('class:', this.getClass());
-		this.log('Settings:', this.getSettings());
+		    this.log('Settings:', this.getSettings());
 		
-		initDeviceInterval(this, this.getSetting('pollingrate'))	
+		    initDeviceInterval(this, this.getSetting('pollingrate'))	
 		
         // register a capability listener
     }
@@ -23,14 +23,14 @@ class mysql_power extends Homey.Device {
     // this method is called when the Device is added
     onAdded() {
         this.log('device added');
-		initDeviceInterval(this, this.getSetting('pollingrate'))	
+		    initDeviceInterval(this, this.getSetting('pollingrate'))	
     }
 
     // this method is called when the Device is deleted
     onDeleted() {
         this.log('device deleted');
-		clearInterval(intervalId[this.id]);
-		delete intervalId[this.id];
+		    clearInterval(intervalId[this.id]);
+		    delete intervalId[this.id];
     }
 };
 
@@ -54,6 +54,7 @@ function GetNewData(device_data, callback) {
 	var query	   = device.getSetting('query');	
 	var connection = mysql.createConnection({
 	  host     : device.getSetting('host'),
+    port     : device.getSetting('port'),
 	  user     : device.getSetting('user'),
 	  password : device.getSetting('pass'),
 	  database : device.getSetting('database')
@@ -68,13 +69,30 @@ function GetNewData(device_data, callback) {
     {
 
 	   var currentUsage = 0 + (rows[0].power * device.getSetting('powermult'));
-	   var MeterTotal = 0 + rows[0].meter ;
-	   
+	   var MeterTotal = 0 + rows[0].meter_power ;
+     var VoltageL1 = 0 + rows[0].meter_voltage_l1 ;
+	   var VoltageL2 = 0 + rows[0].meter_voltage_l2 ;
+     var VoltageL3 = 0 + rows[0].meter_voltage_l3 ;
+     var CurrentL1 = 0 + rows[0].meter_current_l1 ;
+	   var CurrentL2 = 0 + rows[0].meter_current_l2 ;
+     var CurrentL3 = 0 + rows[0].meter_current_l3 ;
 	   device.setCapabilityValue('measure_power', currentUsage);
 	   device.setCapabilityValue('meter_power', MeterTotal);
+     device.setCapabilityValue('measure_voltage.l1', VoltageL1);
+     device.setCapabilityValue('measure_voltage.l2', VoltageL2);
+     device.setCapabilityValue('measure_voltage.l3', VoltageL3);
+     device.setCapabilityValue('measure_current.l1', CurrentL1);
+     device.setCapabilityValue('measure_current.l2', CurrentL2);
+     device.setCapabilityValue('measure_current.l3', CurrentL3);
 		            
        device_data.log('Current usage: ' + device.getCapabilityValue('measure_power') + ' W');
-       device_data.log('Meter total: ' + device.getCapabilityValue('meter_power') + ' KW/H');		
+       device_data.log('Meter total: ' + device.getCapabilityValue('meter_power') + ' KW/H');
+       device_data.log('Voltage L1: ' + device.getCapabilityValue('measure_voltage.l1') + ' V');		
+       device_data.log('Voltage L2: ' + device.getCapabilityValue('measure_voltage.l2') + ' V');		
+       device_data.log('Voltage L3: ' + device.getCapabilityValue('measure_voltage.l3') + ' V');		
+       device_data.log('Current L1: ' + device.getCapabilityValue('measure_current.l1') + ' A');		
+       device_data.log('Current L2: ' + device.getCapabilityValue('measure_current.l2') + ' A');		
+       device_data.log('Current L3: ' + device.getCapabilityValue('measure_current.l3') + ' A');	
     }
 	  
 	})

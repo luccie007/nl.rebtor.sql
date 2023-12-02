@@ -14,6 +14,7 @@
   // Set translated items
   $("label[for='name']").text(__('pair.configuration.name') + ':');
   $("label[for='host']").text(__('pair.configuration.host') + ':');
+  $("label[for='port']").text(__('pair.configuration.port') + ':');
   $("label[for='user']").text(__('pair.configuration.user') + ':');
   $("label[for='pass']").text(__('pair.configuration.pass') + ':');
     $("label[for='powermult']").text(__('pair.configuration.powermult') + ':');
@@ -29,6 +30,7 @@
 		
 		var name 		= $("#name").val();
 		var host 		= $("#host").val();
+		var port 		= $("#port").val();
 		var user 		= $("#user").val();
 		var pass 		= $("#pass").val();
 		var database 	= $("#database").val();
@@ -43,6 +45,7 @@
 				settings: {
 					name: name,
 					host: host,
+					port: port,
 					user: user,
 					pass: pass,
 					powermult: powermult,
@@ -79,6 +82,9 @@
 	
 	<label for="host"></label>
     <input type="text" id="host"></input>
+	
+	<label for="port"></label>
+    <input type="text" id="port"></input>
 
 	<label for="user"></label>
     <input type="text" id="user"></input>

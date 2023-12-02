@@ -8,6 +8,7 @@
     "configuration": {
        "name": "Naam",
        "host": "hostadres",
+	   "port": "poort",
 	   "user": "gebruiker",
 	   "pass": "wachtwoord",
 	   "powermult": "Energie multiplier",

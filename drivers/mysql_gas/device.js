@@ -54,6 +54,7 @@ function GetNewData(device_data, callback) {
 	var query	   = device.getSetting('query');	
 	var connection = mysql.createConnection({
 	  host     : device.getSetting('host'),
+      port     : device.getSetting('port'),
 	  user     : device.getSetting('user'),
 	  password : device.getSetting('pass'),
 	  database : device.getSetting('database')
