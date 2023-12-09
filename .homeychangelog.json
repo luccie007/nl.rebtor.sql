@@ -22,5 +22,8 @@
   },
   "3.1.0": {
     "en": "Added Current and Voltages to Powermeter and Port for SQL when pairing"
+  },
+  "3.1.1": {
+    "en": "Added automatic Device capability for updating without re-adding devices"
   }
 }

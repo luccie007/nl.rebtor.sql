@@ -1,6 +1,18 @@
 ** MYSQL Sensor App for Athom homey
 
 ** CHANGELOG
+* 3.1.1
+    - Added automatic Device capability for updating without re-adding devices
+
+* 3.1.0
+    - Added Current and Voltages to Powermeter and Port for SQL when pairing
+
+* 3.0.1
+    - Updated MySQL libery
+	
+* 3.0.0
+    - SDK update and support for version 5.0.0
+
 * 2.0.3
 	- added MySQL POWER DEVICE (cumulative)
 
@@ -37,8 +49,8 @@ With this app you can create virtual devices that gather data from a mysql datab
 	- User						: User name used to contact MYSQL server
 	- Password					: Password 
 	- Query						: Query used to retrieve data. Use the following fieldnames: 
-		Power device			: power (current usage in watt) and meter (total use in KwH)
-		Power device(cumulative): power (current usage in watt), meter_power (total use in KwH), meter_in_max (total use in KwH), meter_out_max (total return in KwH), meter_in_today (total use in KwH in today), meter_out_today (total return in KwH out today), meter_total_today (total usage or return in KwH today)
+		Power device			: power (current usage in watt) and meter (total use in KwH), for volt and current l1 can be changed into (l1/l2/l3) measure_voltage.l1 (Voltage on phase 1), measure_current.l1 (current on phase 1)
+		Power device(cumulative): power (current usage in watt), meter_power (total use in KwH), meter_in_max (total use in KwH), meter_out_max (total return in KwH), meter_in_today (total use in KwH in today), meter_out_today (total return in KwH out today), meter_total_today (total usage or return in KwH today), for volt and current l1 can be changed into (l1/l2/l3) measure_voltage.l1 (Voltage on phase 1), measure_current.l1 (current on phase 1)
 		gas device				: meter (total use in m3)
 		weather device			: temp (current temperature in C) and humidity (Current humidity in %)
 		sensor device			: triggered (integer value greater then 0 is alarm triggered)

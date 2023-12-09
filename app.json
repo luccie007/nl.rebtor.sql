@@ -1,8 +1,9 @@
 {
   "id": "nl.rebtor.sql",
-  "version": "3.0.2",
+  "version": "3.1.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "brandColor": "#343deb",
   "name": {
     "en": "SQL"
   },
@@ -11,7 +12,8 @@
     "nl": "Gebruik Homey om data op te vragen van een MYSQL server "
   },
   "category": [
-    "appliances"
+    "appliances",
+    "energy"
   ],
   "permissions": [],
   "images": {
@@ -21,6 +23,13 @@
   "author": {
     "name": "Rens Brandwijk",
     "email": "rebtor@rebtor.nl"
+  },
+  "contributors": {
+    "developers": [
+     {
+    "name": "Luc Theunissen"
+     }
+     ]
   },
   "drivers": [
     {
@@ -47,6 +56,12 @@
             "id": "sensor",
             "capabilities": [
               "measure_voltage"
+            ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_current"
             ]
           }
         ]
@@ -226,6 +241,18 @@
             "capabilities": [
               "meter_power"
             ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_voltage"
+            ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_current"
+            ]
           }
         ]
       },
@@ -332,7 +359,13 @@
         "meter_power.out",
         "meter_power.in_today",
         "meter_power.out_today",
-        "meter_power.today"
+        "meter_power.today",
+        "measure_current.l1",
+        "measure_current.l2",
+        "measure_current.l3",
+        "measure_voltage.l1",
+        "measure_voltage.l2",
+        "measure_voltage.l3"
       ],
       "capabilitiesOptions": {
         "meter_power.in": {
@@ -364,6 +397,48 @@
             "en": "Power today"
           },
           "greyout": false
+        },
+        "measure_current.l1": {
+          "title": {
+            "en": "Current L1",
+            "nl": "Stroom L1"
+          },
+          "decimals": 2
+        },
+        "measure_current.l2": {
+          "title": {
+            "en": "Current L2",
+            "nl": "Stroom L2"
+          },
+          "decimals": 2
+        },
+        "measure_current.l3": {
+          "title": {
+            "en": "Current L3",
+            "nl": "Stroom L3"
+          },
+          "decimals": 2
+        },
+        "measure_voltage.l1": {
+          "title": {
+            "en": "Voltage L1",
+            "nl": "Spanning L1"
+          },
+          "decimals": 2
+        },
+        "measure_voltage.l2": {
+          "title": {
+            "en": "Voltage L2",
+            "nl": "Spanning L2"
+          },
+          "decimals": 2
+        },
+        "measure_voltage.l3": {
+          "title": {
+            "en": "Voltage L3",
+            "nl": "Spanning L3"
+          },
+          "decimals": 2
         }
       },
       "energy": {

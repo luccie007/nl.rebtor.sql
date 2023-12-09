@@ -7,15 +7,24 @@ var device = {};
 const Homey = require('homey');
 
 class mysql_power extends Homey.Device {
-
-    // this method is called when the Device is inited
-    onInit() {
+	// this method is called when the Device is inited
+  async onInit() {
+		if (this.hasCapability('measure_voltage.l1') === false) {
+		  // You need to check if migration is needed
+		  // do not call addCapability on every init!
+		  await this.addCapability('measure_voltage.l1');
+		  await this.addCapability('measure_voltage.l2');
+		  await this.addCapability('measure_voltage.l3');
+		  await this.addCapability('measure_current.l1');
+		  await this.addCapability('measure_current.l2');
+		  await this.addCapability('measure_current.l3');
+		  }
         this.log('device init');
         this.log('name:', this.getName());
         this.log('class:', this.getClass());
-		    this.log('Settings:', this.getSettings());
+		this.log('Settings:', this.getSettings());
 		
-		    initDeviceInterval(this, this.getSetting('pollingrate'))	
+		initDeviceInterval(this, this.getSetting('pollingrate'))	
 		
         // register a capability listener
     }
